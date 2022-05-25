@@ -1,0 +1,29 @@
+.Body {
+    // background-color: #dde1e4;
+    background-color: #fefefe;
+    padding: 1rem 6rem;
+    min-height: calc(100vh - 88px);
+    // display: grid;
+    // grid-template-rows: 100px 1fr;
+    position: relative;
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        color: #1a1a1a;
+    }
+}
+
+.CalendarTasks {
+    // display: grid;
+    // grid-template-columns: 1fr 1fr;
+}
+
+.add-event {
+    position: absolute;
+
+    bottom: 2rem;
+    right: 2rem;
+}

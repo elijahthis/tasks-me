@@ -1,0 +1,28 @@
+.Tasks {
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    border-left: 1px solid #abc3fe;
+
+    & > :first-child {
+        padding-left: 2rem;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-family: Ignotum;
+
+        border-bottom: 1px solid #abc3fe;
+    }
+}
+
+.Task {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    padding-left: 2rem;
+    border-bottom: 1px solid #abc3fe;
+}

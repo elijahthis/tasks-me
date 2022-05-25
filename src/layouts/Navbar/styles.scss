@@ -1,0 +1,30 @@
+.Navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 6rem;
+    background-color: #fefefe;
+    color: #4a5060;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    &__links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 3rem;
+        list-style-type: none;
+        display: none;
+
+        li {
+            cursor: pointer;
+        }
+    }
+
+    .active {
+        color: #363c4f;
+    }
+}

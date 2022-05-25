@@ -1,0 +1,88 @@
+.Calendar {
+    & > :nth-child(2) {
+    }
+    .fc {
+        .fc-header-toolbar {
+            height: 100px;
+            margin-bottom: 0;
+            border-bottom: 1px solid #abc3fe;
+
+            #fc-dom-2 {
+                font-family: Ignotum;
+            }
+        }
+
+        .fc-daygrid-day-events {
+            max-height: 80px;
+            // overflow-y: scroll;
+        }
+        .fc-event {
+            // display: none;
+            // width:
+        }
+
+        .fc-view-harness {
+            margin: 2rem 0;
+            border: 0;
+        }
+
+        td {
+            font-weight: 600;
+        }
+        .fc-scrollgrid {
+            border: 0;
+        }
+
+        .fc-scrollgrid-section-header th {
+            border: 0;
+            padding-bottom: 1rem;
+        }
+
+        .fc-daygrid-day {
+            border: 1px solid;
+            transition: border-color 0.5s;
+            border-color: #4a5060;
+            &:hover {
+                // border-color: #abc3fe;
+                cursor: pointer;
+            }
+        }
+        .fc-daygrid-day-top {
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fc-day-today {
+            background-color: transparent;
+
+            .fc-daygrid-day-top {
+                ::after {
+                    content: "";
+                    display: block;
+                    width: 7px;
+                    height: 7px;
+                    border-radius: 50%;
+                    background-color: #2e68fd;
+                    margin: 0 auto;
+                }
+            }
+            > * {
+                // border: 1px solid #2e68fd;
+                margin: 0 auto;
+                border-radius: 0.8rem;
+            }
+        }
+
+        .fc-button-primary {
+            background-color: #2e68fd;
+            border-color: #2e68fd;
+            &:disabled {
+                background-color: #abc3fe;
+                border-color: #abc3fe;
+            }
+        }
+    }
+
+    .element {
+    }
+}
