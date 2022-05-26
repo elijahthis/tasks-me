@@ -13,6 +13,9 @@
         align-items: center;
         justify-content: space-between;
         color: #1a1a1a;
+        h2 {
+            font-weight: 700;
+        }
     }
 }
 
@@ -26,4 +29,11 @@
 
     bottom: 2rem;
     right: 2rem;
+}
+
+.simplebar-track.simplebar-vertical .simplebar-scrollbar {
+    &::before {
+        background-color: #2e68fd;
+        opacity: 0.5;
+    }
 }

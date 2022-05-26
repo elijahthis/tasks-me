@@ -26,7 +26,7 @@ const Modal = ({
             }}
             tabIndex={3}
         >
-            {children}
+            {openModal ? children : <></>}
         </div>,
         document.getElementById("modal")!
     );

@@ -14,7 +14,7 @@
 
         .fc-daygrid-day-events {
             max-height: 80px;
-            // overflow-y: scroll;
+            overflow-y: scroll;
         }
         .fc-event {
             // display: none;
@@ -30,7 +30,8 @@
             font-weight: 600;
         }
         .fc-scrollgrid {
-            border: 0;
+            border: 1px solid #abc3fe;
+            border-radius: 0.5rem;
         }
 
         .fc-scrollgrid-section-header th {
@@ -74,12 +75,20 @@
         }
 
         .fc-button-primary {
-            background-color: #2e68fd;
-            border-color: #2e68fd;
+            background-color: transparent;
+            border-color: transparent;
+            color: #1a1a1a;
             &:disabled {
-                background-color: #abc3fe;
-                border-color: #abc3fe;
+                background-color: #bebebe;
+                border-color: #bebebe;
+                color: #1a1a1a;
             }
+        }
+        .fc-today-button {
+            background-color: #abc3fe;
+            border-color: #abc3fe;
+            color: white;
+            font-weight: 600;
         }
     }
 
