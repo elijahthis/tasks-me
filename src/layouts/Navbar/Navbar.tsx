@@ -2,7 +2,7 @@ import "./styles.scss";
 import Button from "../../components/Button";
 import { LogoSVG } from "../../assets/svgs";
 import { GoogleIcon } from "../../assets/svgs";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 const Navbar = () => {
     const [active, setActive] = useState(0);

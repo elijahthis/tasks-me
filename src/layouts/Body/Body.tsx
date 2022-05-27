@@ -6,27 +6,23 @@ import Modal from "../../components/Modals/Modal";
 import { useEffect, useState } from "react";
 import { AddEvent } from "../../components/Modals/ModalChildren";
 import SimpleBarReact from "simplebar-react";
-import SimpleBar from "simplebar";
 import "simplebar/src/simplebar.css";
 
 const Body = () => {
+    const [openModal, setOpenModal] = useState(false);
+    const [eventList, setEventList] = useState<
+        { title: string; date: string }[]
+    >([{ title: "dddd", date: "2022-05-04" }]);
+
     useEffect(() => {
-        const scrollable = document.querySelectorAll(".fc-daygrid-day-events");
-        // Array.from(scrollable).forEach((node: Node) => {
-        //     console.log(node as HTMLElement);
-        //     new SimpleBar(node as HTMLElement, { autoHide: true });
-        // });
+        const storedList = JSON.parse(
+            localStorage.getItem("tasks-me") as string
+        );
+        if (storedList) {
+            setEventList(storedList);
+        }
     }, []);
 
-    const [openModal, setOpenModal] = useState(false);
-    const [eventList, setEventList] = useState([
-        { title: "event 1", date: "2022-05-01" },
-        { title: "event 1", date: "2022-05-01" },
-        { title: "event 1", date: "2022-05-01" },
-        { title: "event 1", date: "2022-05-01" },
-        { title: "event 1", date: "2022-05-01" },
-        { title: "event 2", date: "2022-05-02" },
-    ]);
     return (
         <SimpleBarReact style={{ height: "calc(100vh - 88px)" }}>
             <div className="Body">

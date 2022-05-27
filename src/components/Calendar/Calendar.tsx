@@ -1,18 +1,19 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import interactionPlugin from "@fullcalendar/interaction"; // must go before plugins
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import "./styles.scss";
 import { AddEvent } from "../Modals/ModalChildren";
 import Modal from "../Modals/Modal";
+import { JsxEmit } from "typescript";
 
-const Calendar = ({
-    eventList,
-    setEventList,
-}: {
+interface CalendarProps {
+    // eventList: { title: string; date: string }[]};
     eventList: { title: string; date: string }[];
     setEventList: ([]) => void;
-}) => {
+}
+
+const Calendar = ({ eventList, setEventList }: CalendarProps) => {
     const [openModal, setOpenModal] = useState(false);
     const [modalChild, setModalChild] = useState(<></>);
 
@@ -23,7 +24,6 @@ const Calendar = ({
                 initialView="dayGridMonth"
                 events={eventList}
                 dateClick={(info) => {
-                    console.log(info.dateStr);
                     setModalChild(
                         <AddEvent
                             dateStr={info.dateStr}

@@ -1,11 +1,10 @@
 import "./styles.scss";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import Button from "../../Button";
 import { DatePicker, TimePicker } from "antd";
 import "antd/dist/antd.css";
 import moment from "moment";
 import "moment/locale/zh-cn";
-import locale from "antd/lib/locale/zh_CN";
 
 const AddEvent = ({
     dateStr = "",
@@ -40,6 +39,10 @@ const AddEvent = ({
                     if (formData.title && formData.date) {
                         const newList = [...eventList, formData];
                         setEventList(newList);
+                        localStorage.setItem(
+                            "tasks-me",
+                            JSON.stringify(newList)
+                        );
                     }
                     setOpenModal(false);
                 }}
@@ -56,7 +59,6 @@ const AddEvent = ({
                             const newData = { ...formData };
                             newData.title = ev.target.value;
                             setFormData(newData);
-                            console.log();
                         }}
                     />
                 </label>
