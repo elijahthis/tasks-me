@@ -66,7 +66,7 @@ const AddEvent = ({
                         type="text"
                         name=""
                         id=""
-                        placeholder="Enter event title"
+                        placeholder="Enter event description"
                     />
                 </label>
                 <label htmlFor="">
