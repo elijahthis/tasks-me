@@ -1,16 +1,15 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import interactionPlugin from "@fullcalendar/interaction"; // must go before plugins
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import "./styles.scss";
 import { AddEvent } from "../Modals/ModalChildren";
 import Modal from "../Modals/Modal";
-import { JsxEmit } from "typescript";
 
 interface CalendarProps {
     // eventList: { title: string; date: string }[]};
     eventList: { title: string; date: string }[];
-    setEventList: ([]) => void;
+    setEventList: (list: { title: string; date: string }[]) => void;
 }
 
 const Calendar = ({ eventList, setEventList }: CalendarProps) => {
@@ -21,6 +20,7 @@ const Calendar = ({ eventList, setEventList }: CalendarProps) => {
         <div className="Calendar">
             <FullCalendar
                 plugins={[dayGridPlugin, interactionPlugin]}
+                height="auto"
                 initialView="dayGridMonth"
                 events={eventList}
                 dateClick={(info) => {

@@ -1,8 +1,8 @@
 import "./styles.scss";
 import { useState } from "react";
 import Button from "../../Button";
-import { DatePicker, TimePicker } from "antd";
-import "antd/dist/antd.css";
+import { DatePicker } from "antd";
+import "antd/dist/antd.min.css";
 import moment from "moment";
 import "moment/locale/zh-cn";
 
@@ -18,7 +18,7 @@ const AddEvent = ({
     openModal: boolean;
     setOpenModal: (argg: boolean) => void;
     eventList: { title: string; date: string }[];
-    setEventList: ([]) => void;
+    setEventList: (list: { title: string; date: string }[]) => void;
     edit?: boolean;
 }) => {
     const [formData, setFormData] = useState({

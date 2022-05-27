@@ -30,6 +30,7 @@
             // border: 1px solid #abc3fe;
             border: 0;
             border-radius: 0.5rem;
+            border-bottom-color: transparent;
         }
 
         .fc-scrollgrid-section-header th {
@@ -38,13 +39,9 @@
         }
 
         .fc-daygrid-day {
-            // border: 1px solid;
             border: 0;
-            // border-top: 1px solid;
             transition: border-color 0.5s;
-            border-color: #4a5060;
             &:hover {
-                // border-color: #abc3fe;
                 background-color: rgba(55, 136, 216, 0.2);
                 cursor: pointer;
             }
@@ -69,7 +66,6 @@
                 }
             }
             > * {
-                // border: 1px solid #2e68fd;
                 margin: 0 auto;
                 border-radius: 0.8rem;
             }
