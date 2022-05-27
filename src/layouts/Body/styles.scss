@@ -12,6 +12,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        gap: 2rem;
         color: #1a1a1a;
         h2 {
             font-weight: 700;
@@ -35,5 +36,14 @@
     &::before {
         background-color: #2e68fd;
         opacity: 0.5;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Body {
+        padding: 1rem 2.55rem;
+        h2 {
+            font-size: 18px;
+        }
     }
 }

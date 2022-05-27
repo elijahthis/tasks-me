@@ -28,3 +28,13 @@
         color: #363c4f;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .Navbar {
+        padding: 1rem;
+
+        svg {
+            height: 24px;
+        }
+    }
+}

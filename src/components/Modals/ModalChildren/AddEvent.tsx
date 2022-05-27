@@ -12,12 +12,14 @@ const AddEvent = ({
     setOpenModal,
     eventList,
     setEventList,
+    edit = false,
 }: {
     dateStr?: string;
     openModal: boolean;
     setOpenModal: (argg: boolean) => void;
     eventList: { title: string; date: string }[];
     setEventList: ([]) => void;
+    edit?: boolean;
 }) => {
     const [formData, setFormData] = useState({
         title: "",
@@ -31,7 +33,7 @@ const AddEvent = ({
                 ev.stopPropagation();
             }}
         >
-            <h3>Add Event</h3>
+            <h3>{edit ? "Edit" : "Add"} Event</h3>
             <form
                 action=""
                 onSubmit={(ev) => {
