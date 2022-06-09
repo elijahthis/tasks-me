@@ -40,4 +40,27 @@
         gap: 1rem;
         margin-top: 0.2rem;
     }
+
+    h4 {
+        font-size: 1.25rem;
+    }
+
+    .dates {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+
+        &__date {
+            font-weight: 700;
+        }
+    }
+}
+
+.EventInfo {
+    input {
+        width: 100%;
+        border: 0;
+        font-family: Nunito;
+    }
 }

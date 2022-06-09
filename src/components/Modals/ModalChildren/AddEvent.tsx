@@ -17,13 +17,30 @@ const AddEvent = ({
     dateStr?: string;
     openModal: boolean;
     setOpenModal: (argg: boolean) => void;
-    eventList: { title: string; date: string }[];
-    setEventList: (list: { title: string; date: string }[]) => void;
+    eventList: {
+        id: string;
+        title: string;
+        start: string;
+        end: string;
+        description: string;
+    }[];
+    setEventList: (
+        list: {
+            id: string;
+            title: string;
+            start: string;
+            end: string;
+            description: string;
+        }[]
+    ) => void;
     edit?: boolean;
 }) => {
     const [formData, setFormData] = useState({
+        id: eventList.length.toString(),
         title: "",
-        date: dateStr || moment().toISOString().slice(0, 10),
+        start: dateStr || moment().toISOString().slice(0, 10),
+        end: dateStr || moment().toISOString().slice(0, 10),
+        description: "",
     });
 
     return (
@@ -38,7 +55,7 @@ const AddEvent = ({
                 action=""
                 onSubmit={(ev) => {
                     ev.preventDefault();
-                    if (formData.title && formData.date) {
+                    if (formData.title && formData.start) {
                         const newList = [...eventList, formData];
                         setEventList(newList);
                         localStorage.setItem(
@@ -71,22 +88,35 @@ const AddEvent = ({
                         name=""
                         id=""
                         placeholder="Enter event description"
+                        value={formData.description}
+                        onChange={(ev) => {
+                            const newData = { ...formData };
+                            newData.description = ev.target.value;
+                            setFormData(newData);
+                        }}
                     />
                 </label>
                 <label htmlFor="">
                     Start Date
                     <DatePicker
-                        value={moment(formData.date) || moment()}
+                        value={moment(formData.start) || moment()}
                         onChange={(date, dateString) => {
                             const newData = { ...formData };
-                            newData.date = dateString;
+                            newData.start = dateString;
                             setFormData(newData);
                         }}
                     />
                 </label>
                 <label htmlFor="">
                     End Date
-                    <DatePicker />
+                    <DatePicker
+                        value={moment(formData.end) || moment()}
+                        onChange={(date, dateString) => {
+                            const newData = { ...formData };
+                            newData.end = dateString;
+                            setFormData(newData);
+                        }}
+                    />
                 </label>
                 <div className="actions">
                     <Button theme="dark" variant="full">

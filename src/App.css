@@ -3,3 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+#modal h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+

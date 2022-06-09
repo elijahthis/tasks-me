@@ -1,6 +1,6 @@
 import "./styles.scss";
 import Calendar from "../../components/Calendar";
-import Tasks from "../../components/Tasks";
+// import Tasks from "../../components/Tasks";
 import Button from "../../components/Button";
 import Modal from "../../components/Modals/Modal";
 import { useEffect, useState } from "react";
@@ -11,15 +11,25 @@ import "simplebar/src/simplebar.css";
 const Body = () => {
     const [openModal, setOpenModal] = useState(false);
     const [eventList, setEventList] = useState<
-        { title: string; date: string }[]
-    >([{ title: "dddd", date: "2022-05-04" }]);
+        {
+            id: string;
+            title: string;
+            start: string;
+            end: string;
+            description: string;
+        }[]
+    >([]);
 
     useEffect(() => {
-        const storedList = JSON.parse(
-            localStorage.getItem("tasks-me") as string
-        );
-        if (storedList) {
-            setEventList(storedList);
+        try {
+            const storedList = JSON.parse(
+                localStorage.getItem("tasks-me") as string
+            );
+            if (storedList) {
+                setEventList(storedList);
+            }
+        } catch (e) {
+            console.log(e);
         }
     }, []);
 

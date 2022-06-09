@@ -3,13 +3,26 @@ import FullCalendar from "@fullcalendar/react";
 import interactionPlugin from "@fullcalendar/interaction"; // must go before plugins
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import "./styles.scss";
-import { AddEvent } from "../Modals/ModalChildren";
+import { AddEvent, EventInfo } from "../Modals/ModalChildren";
 import Modal from "../Modals/Modal";
 
 interface CalendarProps {
-    // eventList: { title: string; date: string }[]};
-    eventList: { title: string; date: string }[];
-    setEventList: (list: { title: string; date: string }[]) => void;
+    eventList: {
+        id: string;
+        title: string;
+        start: string;
+        end: string;
+        description: string;
+    }[];
+    setEventList: (
+        list: {
+            id: string;
+            title: string;
+            start: string;
+            end: string;
+            description: string;
+        }[]
+    ) => void;
 }
 
 const Calendar = ({ eventList, setEventList }: CalendarProps) => {
@@ -22,6 +35,7 @@ const Calendar = ({ eventList, setEventList }: CalendarProps) => {
                 plugins={[dayGridPlugin, interactionPlugin]}
                 height="auto"
                 initialView="dayGridMonth"
+                editable={true}
                 events={eventList}
                 dateClick={(info) => {
                     setModalChild(
@@ -29,6 +43,20 @@ const Calendar = ({ eventList, setEventList }: CalendarProps) => {
                             dateStr={info.dateStr}
                             openModal={openModal}
                             setOpenModal={setOpenModal}
+                            eventList={eventList}
+                            setEventList={setEventList}
+                        />
+                    );
+                    setOpenModal(true);
+                }}
+                eventClick={(info) => {
+                    const eventInd = info.event._def.publicId;
+                    console.log(info);
+                    console.log(info.event.title);
+                    setModalChild(
+                        <EventInfo
+                            info={info}
+                            eventInd={parseInt(eventInd)}
                             eventList={eventList}
                             setEventList={setEventList}
                         />
