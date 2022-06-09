@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface EventInfoProps {
     info: { el: any; event: any; jsEvent: any; view: any };
@@ -36,9 +36,9 @@ const EventInfo = ({
         description: eventObj.description,
     });
 
-    useEffect(() => {
-        console.log(eventInd);
-    }, []);
+    // useEffect(() => {
+    //     console.log(eventInd);
+    // }, []);
 
     return (
         <div
